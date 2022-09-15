@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
   },
 
   flag: {
-    width: 300,
-    height: 250,
+    width: 350,
+    height: 200,
     resizeMode: 'center',
   },
 });
