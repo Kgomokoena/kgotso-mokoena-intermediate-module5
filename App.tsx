@@ -5,12 +5,14 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Button, Image, StyleSheet} from 'react-native';
 import * as data from './data/countries.json';
 
 const App = () => {
-  let randomCountry = Math.floor(Math.random() * 196); //196 countries in the world
+  const [randomCountry, setrandomCountry] = useState(
+    Math.floor(Math.random() * 196),
+  ); //196 countries in the world
   const countryName = data[randomCountry].name;
   const countryCapital = data[randomCountry].capital;
   const countryRegion = data[randomCountry].region;
@@ -24,7 +26,12 @@ const App = () => {
       <Text>Region: {countryRegion}</Text>
       <Text>Country Code: {countryCode}</Text>
       <Image style={styles.flag} source={{uri: imageUri}} />
-      <Button title="Submit" />
+      <Button
+        onPress={() => {
+          setrandomCountry(Math.floor(Math.random() * 196));
+        }}
+        title="Next"
+      />
     </View>
   );
 };
@@ -39,6 +46,7 @@ const styles = StyleSheet.create({
   flag: {
     width: 300,
     height: 250,
+    resizeMode: 'center',
   },
 });
 
