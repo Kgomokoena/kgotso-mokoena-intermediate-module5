@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "478383228475",
+    "project_id": "assmod3",
+    "storage_bucket": "assmod3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478383228475:android:1b58ab1477f7438ef0be1e",
+        "android_client_info": {
+          "package_name": "com.assmod3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478383228475-v18c837pumchp3u4krjehfh2n189ks1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3C7Df-pzE6NXBzaDvoJ-O-8FBgELdjvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478383228475-v18c837pumchp3u4krjehfh2n189ks1o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
