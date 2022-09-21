@@ -6,7 +6,14 @@
  */
 
 import React, {useState} from 'react';
-import {View, Text, Button, Image, StyleSheet, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import * as data from '../data/countries.json';
 
 const Quizpage = () => {
@@ -19,21 +26,33 @@ const Quizpage = () => {
 
   return (
     <View style={styles.container}>
-      <Text>To which country does the below flag belong:</Text>
+      <Text style={styles.heading}>
+        To which country does the below flag belong:
+      </Text>
       <Image style={styles.flag} source={{uri: imageUri}} />
-      <TextInput placeholder="Answer" />
-      <Button title="Submit" onPress={() => {}} />
-      <Button
-        onPress={() => {
-          setrandomCountry(Math.floor(Math.random() * 196));
-        }}
-        title="Next"
-      />
+      <TextInput style={styles.answer} placeholder="Answer Here" />
+      <View style={styles.buttonContainer}>
+        <View style={styles.buttons}>
+          <TouchableOpacity onPress={() => {}}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.buttons}>
+          <TouchableOpacity
+            onPress={() => {
+              setrandomCountry(Math.floor(Math.random() * 196));
+            }}>
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  heading: {fontWeight: 'bold', fontSize: 16},
+
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -47,9 +66,29 @@ const styles = StyleSheet.create({
   },
 
   answer: {
-    borderBottomColor: 'blue',
+    borderBottomColor: '#64b5f6',
     borderBottomWidth: 1,
   },
+
+  buttonText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    alignSelf: 'center',
+  },
+
+  buttons: {
+    paddingHorizontal: 5,
+    paddingVertical: 3,
+    borderRadius: 10,
+    backgroundColor: '#64b5f6',
+    minWidth: '30%',
+    textAlign: 'center',
+    margin: 45,
+    alignItems: 'center',
+  },
+
+  buttonContainer: {flexDirection: 'row', margin: 30},
 });
 
 export default Quizpage;
