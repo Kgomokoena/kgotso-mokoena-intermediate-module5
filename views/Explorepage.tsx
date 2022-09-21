@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 import {View, Text, Button, Image, StyleSheet} from 'react-native';
 import * as data from '../data/countries.json';
 
-const Mappage = () => {
+const Explorepage = () => {
   const [randomCountry, setrandomCountry] = useState(
     Math.floor(Math.random() * 196),
   ); //196 countries in the world
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Mappage;
+export default Explorepage;
