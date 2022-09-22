@@ -17,7 +17,9 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Quiz">
+      <Tab.Navigator
+        initialRouteName="Quiz"
+        screenOptions={{headerStyle: {backgroundColor: '#64b5f6'}}}>
         <Tab.Screen
           name="Quiz"
           component={Quizpage}

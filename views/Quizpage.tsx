@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 15,
   },
 
   flag: {
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
   answer: {
     borderBottomColor: '#64b5f6',
     borderBottomWidth: 1,
+    marginBottom: 17,
   },
 
   buttonText: {
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#64b5f6',
     minWidth: '30%',
     textAlign: 'center',
-    margin: 25,
+    margin: 14,
     alignItems: 'center',
   },
 
