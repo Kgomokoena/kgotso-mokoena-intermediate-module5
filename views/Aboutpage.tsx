@@ -11,11 +11,14 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 const Aboutpage = () => {
   return (
     <View style={styles.container}>
-      <Text>MAPIE</Text>
-      <Text>Version 1.0.0</Text>
-      <Text>By Trilogy Innovative Solutions</Text>
-      <Text>www.trilogysolution.co.za</Text>
-      <Image style={styles.flag} source={{uri: 'asset:/launch_screen.png'}} />
+      <Text style={styles.heading}>MAPIE</Text>
+      <Text style={styles.heading}>Version 1.0.0</Text>
+      <Text style={styles.heading}>By Kgotso Mokoena (@5tib0)</Text>
+      <Text style={styles.heading}>https://github.com/Kgomokoena</Text>
+      <Image
+        style={styles.flag}
+        source={{uri: 'asset:/launch_screen_new.png'}}
+      />
     </View>
   );
 };
@@ -28,11 +31,13 @@ const styles = StyleSheet.create({
   },
 
   flag: {
-    width: 350,
-    height: 200,
+    width: 400,
+    height: 300,
     resizeMode: 'center',
     backgroundColor: 'transparent',
+    margin: 1,
   },
+  heading: {fontWeight: 'bold', fontSize: 16},
 });
 
 export default Aboutpage;
