@@ -14,6 +14,8 @@ import Aboutpage from './views/Aboutpage';
 
 const Tab = createBottomTabNavigator();
 
+//use "onReady={() => Splash.hide()}" on NavigationContainer
+
 const App = () => {
   return (
     <NavigationContainer>
