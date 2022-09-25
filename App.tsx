@@ -4,10 +4,11 @@
  * @format
  * @flow strict-local
  */
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import SplashScreen from 'react-native-splash-screen';
 import Quizpage from './views/Quizpage';
 import Explorepage from './views/Explorepage';
 import Aboutpage from './views/Aboutpage';
@@ -17,6 +18,9 @@ const Tab = createBottomTabNavigator();
 //use "onReady={() => Splash.hide()}" on NavigationContainer
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <NavigationContainer>
       <Tab.Navigator
