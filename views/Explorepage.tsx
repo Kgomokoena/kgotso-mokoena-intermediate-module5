@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import * as data from '../data/countries.json';
 
-const Explorepage = () => {
+function Explorepage() {
   const [randomCountry, setrandomCountry] = useState(
     Math.floor(Math.random() * 196),
   ); //196 countries in the world
@@ -28,17 +28,19 @@ const Explorepage = () => {
       <Text style={styles.heading}>Country Code: {countryCode}</Text>
       <Text style={styles.heading}>Calling Code: +{callingCode}</Text>
       <Image style={styles.flag} source={{uri: imageUri}} />
-      <View style={styles.buttons}>
-        <TouchableOpacity
-          onPress={() => {
-            setrandomCountry(Math.floor(Math.random() * 196));
-          }}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <View style={styles.buttons}>
+          <TouchableOpacity
+            onPress={() => {
+              setrandomCountry(Math.floor(Math.random() * 196));
+            }}>
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   heading: {fontWeight: 'bold', fontSize: 16},

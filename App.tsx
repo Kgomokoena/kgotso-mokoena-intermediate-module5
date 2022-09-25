@@ -12,10 +12,9 @@ import SplashScreen from 'react-native-splash-screen';
 import Quizpage from './views/Quizpage';
 import Explorepage from './views/Explorepage';
 import Aboutpage from './views/Aboutpage';
+import Mapspage from './views/Mapspage';
 
 const Tab = createBottomTabNavigator();
-
-//use "onReady={() => Splash.hide()}" on NavigationContainer
 
 const App = () => {
   useEffect(() => {
@@ -41,6 +40,15 @@ const App = () => {
           options={{
             tabBarIcon: () => (
               <FontAwesome name="globe" color={'#64b5f6'} size={30} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Map"
+          component={Mapspage}
+          options={{
+            tabBarIcon: () => (
+              <FontAwesome name="map-pin" color={'#64b5f6'} size={30} />
             ),
           }}
         />
