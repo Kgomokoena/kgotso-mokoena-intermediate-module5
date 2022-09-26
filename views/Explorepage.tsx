@@ -38,6 +38,7 @@ function Explorepage() {
           </TouchableOpacity>
         </View>
       </View>
+      <Text style={styles.heading}>Click "Map" for country location</Text>
     </View>
   );
 }
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  buttonContainer: {flexDirection: 'row', margin: 30},
+  buttonContainer: {flexDirection: 'row', margin: 10},
 });
 
 export default Explorepage;

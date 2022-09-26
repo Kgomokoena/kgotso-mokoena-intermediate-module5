@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {View, StyleSheet, SafeAreaView} from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 const Mapspage = () => {
   return (
@@ -16,13 +16,14 @@ const Mapspage = () => {
         <MapView
           style={styles.mapStyle}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitude: 8.537981,
+            longitude: -80.782127,
+            latitudeDelta: 15.0,
+            longitudeDelta: 15.0,
           }}
-          customMapStyle={mapStyle}
-        />
+          customMapStyle={mapStyle}>
+          <Marker coordinate={{latitude: 8.537981, longitude: -80.782127}} />
+        </MapView>
       </View>
     </SafeAreaView>
   );
