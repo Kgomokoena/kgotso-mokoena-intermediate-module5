@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import * as data from '../data/countries.json';
 
-function Explorepage() {
+function Explorepage({navigation}: {navigation: any}) {
   const [randomCountry, setrandomCountry] = useState(
     Math.floor(Math.random() * 196),
   ); //196 countries in the world
@@ -29,6 +29,14 @@ function Explorepage() {
       <Text style={styles.heading}>Calling Code: +{callingCode}</Text>
       <Image style={styles.flag} source={{uri: imageUri}} />
       <View style={styles.buttonContainer}>
+        <View style={styles.buttons}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Map', {country: countryName});
+            }}>
+            <Text style={styles.buttonText}>View Map</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.buttons}>
           <TouchableOpacity
             onPress={() => {

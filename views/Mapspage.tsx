@@ -5,11 +5,28 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, SafeAreaView} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
-const Mapspage = () => {
+const Mapspage = ({route}: {route: any}) => {
+  const thecountry = route.params.country;
+  //const [mapCountry, setmapCountry] = useState(thecountry);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' +
+        thecountry +
+        '&key=AIzaSyCc2TC-GUrlS_qHBQa5k80TrUwYKbgXF5M',
+    )
+      .then(response => response.json())
+      .then(json => setData(json))
+      .catch(error => console.error(error));
+  }, [thecountry]);
+
+  console.log(data);
+
   return (
     <SafeAreaView style={styles.mapcontainer}>
       <View style={styles.container}>
