@@ -11,21 +11,27 @@ import MapView, {Marker} from 'react-native-maps';
 
 const Mapspage = ({route}: {route: any}) => {
   const thecountry = route.params.country;
-  //const [mapCountry, setmapCountry] = useState(thecountry);
-  const [data, setData] = useState([]);
+  const [lat, setLat] = useState(0);
+  const [long, setLong] = useState(0);
 
   useEffect(() => {
     fetch(
       'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' +
         thecountry +
         '&key=AIzaSyCc2TC-GUrlS_qHBQa5k80TrUwYKbgXF5M',
+      {
+        method: 'GET',
+      },
     )
       .then(response => response.json())
-      .then(json => setData(json))
+      .then(responsejson => {
+        if (responsejson.status === 'OK') {
+          setLat(responsejson.results[0].geometry.location.lat);
+          setLong(responsejson.results[0].geometry.location.lng);
+        }
+      })
       .catch(error => console.error(error));
   }, [thecountry]);
-
-  console.log(data);
 
   return (
     <SafeAreaView style={styles.mapcontainer}>
@@ -33,13 +39,19 @@ const Mapspage = ({route}: {route: any}) => {
         <MapView
           style={styles.mapStyle}
           initialRegion={{
-            latitude: 8.537981,
-            longitude: -80.782127,
+            latitude: lat,
+            longitude: long,
+            latitudeDelta: 15.0,
+            longitudeDelta: 15.0,
+          }}
+          region={{
+            latitude: lat,
+            longitude: long,
             latitudeDelta: 15.0,
             longitudeDelta: 15.0,
           }}
           customMapStyle={mapStyle}>
-          <Marker coordinate={{latitude: 8.537981, longitude: -80.782127}} />
+          <Marker coordinate={{latitude: lat, longitude: long}} />
         </MapView>
       </View>
     </SafeAreaView>
