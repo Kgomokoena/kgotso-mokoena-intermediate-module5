@@ -212,11 +212,11 @@ android {
         }
     }
     signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+        release {
+            storeFile file('mapie.keystore')
+            storePassword "dfc-fin-16-adhoc"
+            keyAlias "mapie"
+            keyPassword "dfc-fin-16-adhoc"
         }
     }
     buildTypes {
