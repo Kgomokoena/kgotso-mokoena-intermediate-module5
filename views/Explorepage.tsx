@@ -22,6 +22,7 @@ function Explorepage({navigation}: {navigation: any}) {
   const callingCode = data[randomCountry].callingCodes;
   const imageUri = 'https://countryflagsapi.com/png/' + countryCode;
   const appDispatch = useDispatch();
+
   useEffect(() => {
     appDispatch<any>(setName(countryName));
   });
