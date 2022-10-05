@@ -8,16 +8,19 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, SafeAreaView} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
+import {useSelector} from 'react-redux';
+import {State} from '../redux/store';
 
-const Mapspage = ({route}: {route: any}) => {
-  const thecountry = route.params.country;
+const Mapspage = () => {
+  // const thecountry = route.params.country;
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
+  const reduxcountry = useSelector((state: State) => state.userReducer.name);
 
   useEffect(() => {
     fetch(
       'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' +
-        thecountry +
+        reduxcountry +
         '&key=AIzaSyCc2TC-GUrlS_qHBQa5k80TrUwYKbgXF5M',
       {
         method: 'GET',
@@ -31,7 +34,7 @@ const Mapspage = ({route}: {route: any}) => {
         }
       })
       .catch(error => console.error(error));
-  }, [thecountry]);
+  });
 
   return (
     <SafeAreaView style={styles.mapcontainer}>

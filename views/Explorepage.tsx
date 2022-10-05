@@ -5,13 +5,11 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import * as data from '../data/countries.json';
 import {useDispatch} from 'react-redux';
 import {setName} from '../redux/actions';
-import {useSelector} from 'react-redux';
-import {State} from '../redux/store';
 
 function Explorepage({navigation}: {navigation: any}) {
   const [randomCountry, setrandomCountry] = useState(
@@ -23,15 +21,13 @@ function Explorepage({navigation}: {navigation: any}) {
   const countryCode = data[randomCountry].alpha3Code;
   const callingCode = data[randomCountry].callingCodes;
   const imageUri = 'https://countryflagsapi.com/png/' + countryCode;
-
   const appDispatch = useDispatch();
-
-  console.log(appDispatch<any>(setName(countryName)));
-  const theCountry = useSelector((state: State) => state.userReducer.name);
-  console.log(theCountry);
+  useEffect(() => {
+    appDispatch<any>(setName(countryName));
+  });
 
   const Nav = () => {
-    navigation.navigate('Map', {country: countryName});
+    navigation.navigate('Map');
   };
 
   return (
